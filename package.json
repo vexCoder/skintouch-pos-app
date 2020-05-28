@@ -1,0 +1,95 @@
+{
+  "name": "pos-inventory",
+  "version": "2.0.0-alpha",
+  "description": "POS System with Inventory Management Capabilities for Skintouch Client",
+  "main": "./public/electron.js",
+  "homepage": "./",
+  "build": {
+    "productName": "pos-inventory-skintouch",
+    "appId": "com.vexcoder.app.pos.inventory",
+    "artifactName": "${productName}-${version}-${os}.${ext}",
+    "copyright": "Copyright © 2019 ${author}",
+    "files": [
+      "build/**/*",
+      "node_modules/**/*"
+    ],
+    "directories": {
+      "buildResources": "assets"
+    },
+    "win": {
+      "target": [
+        {
+          "target": "nsis",
+          "arch": [
+            "x64"
+          ]
+        }
+      ]
+    }
+  },
+  "scripts": {
+    "react-start": "react-scripts start",
+    "react-build": "react-scripts build",
+    "react-test": "react-scripts test --env=jsdom",
+    "react-eject": "react-scripts eject",
+    "electron-build": "electron-builder -w",
+    "release": "yarn react-build && electron-builder --publish=always",
+    "build": "yarn react-build && yarn electron-build",
+    "start": "concurrently \"cross-env BROWSER=none yarn react-start\" \"wait-on http://localhost:3000/ && electron .\"",
+    "watch": "nodemon --watch public/electron.js --exec npm start",
+    "lint": "eslint ./src/* --fix",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [
+    "boilerplate"
+  ],
+  "author": "vexCoder",
+  "license": "ISC",
+  "devDependencies": {
+    "concurrently": "^5.2.0",
+    "electron": "^8.2.4",
+    "electron-builder": "^22.6.0",
+    "nodemon": "^2.0.3",
+    "react-scripts": "^3.4.1",
+    "wait-on": "^4.0.2"
+  },
+  "dependencies": {
+    "@ant-design/colors": "^4.0.0",
+    "@ant-design/icons": "^4.1.0",
+    "antd": "^4.2.0",
+    "chart.js": "^2.9.3",
+    "chokidar": "^3.4.0",
+    "crypto-js": "^4.0.0",
+    "electron-is-dev": "^1.2.0",
+    "form-data": "^3.0.0",
+    "formik": "^2.1.4",
+    "jimp": "^0.10.3",
+    "lodash": "^4.17.15",
+    "lowdb": "^1.0.0",
+    "moment": "^2.24.0",
+    "mousetrap": "^1.6.5",
+    "node-fetch": "^2.6.0",
+    "prop-types": "^15.7.2",
+    "react": "^16.13.1",
+    "react-anime": "^3.0.3",
+    "react-dom": "^16.13.1",
+    "react-router-dom": "^5.1.2",
+    "react-transition-group": "^4.3.0",
+    "styled-components": "^5.1.0",
+    "uuid": "^8.0.0",
+    "v8-compile-cache": "^2.1.0",
+    "yup": "^0.28.5"
+  },
+  "browserslist": {
+    "production": [
+      ">0.2%",
+      "not dead",
+      "not op_mini all"
+    ],
+    "development": [
+      "last 1 chrome version",
+      "last 1 firefox version",
+      "last 1 safari version"
+    ]
+  }
+}

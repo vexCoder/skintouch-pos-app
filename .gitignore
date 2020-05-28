@@ -1,0 +1,6 @@
+node_modules
+dist
+build
+assets
+/data
+/src/tools/Config.js
